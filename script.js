@@ -2,16 +2,16 @@ const postContainer = document.getElementById('article-class')
 const loader = document.querySelector('.lds-ellipsis')
 const filter = document.getElementById('search')
 
-
 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const API_KEY = '4457429f59a433d6bef7c5a9215dff1e'
+const API_KEY2 = '360ceee9e5eeb957b4a961455e0c3563'
+
 let page_size = 5
 let page = 1
 
 // create the function to grab the data from the api
 async function getAllPosts() {
   // fetch the data from the api and put inside a promise
-  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${API_KEY}&lang=en`)
+  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${API_KEY2}&lang=en`)
 
   // transform the data in json
   const apiJson = fetchAPI.json()
@@ -24,8 +24,8 @@ function viewAllPosts(){
   // create a function that grab the information from the function as promise " take some time to resolve"
   const allPosts = getAllPosts()
   // resolve the promise with '.then'
-    .then(data => console.log(data.articles.map( post => {
-      console.log('new is: ', post );
+    .then(data => data.articles.map( post => {
+      
       // the html stuff goes here...
       //let  = new Date(post.publishedAt)
       const postEl = document.createElement('article')
@@ -34,11 +34,11 @@ function viewAllPosts(){
       postEl.innerHTML = `
       <div class="media-content px-4 pb-4">
       <div class="content">
-        <p>
+        <p class="title-post">
           <strong><a href="${post.url}" target="_blank"> ${post.title} </a> </strong>
-          <br><br>
-          ${post.description}
+          <br>
         </p>
+        <p class="title-description"> ${post.description} </p>
         <p class="has-text-right has-date-color">
           <small class=""> ${new Date(post.publishedAt).toDateString()}</small>
         </p>
@@ -48,7 +48,7 @@ function viewAllPosts(){
       `
       // append the information inside the node and display on the screen.
       postContainer.appendChild(postEl)
-    })))
+    }))
 
 }
 
@@ -70,6 +70,24 @@ function showLoadingPage(){
   
 }
 
+function searchPost(e){
+  const term = e.target.value.toUpperCase()
+  const posts = document.querySelectorAll('.box')
+  // console.log('term', term);
+  // loop the posts.
+  posts.forEach( post => {
+    const title = post.querySelector('.title-post').innerText.toUpperCase();
+    const body = post.querySelector('.title-description').innerText.toUpperCase();
+    // check the terms and if they are the same match it
+    if(title.indexOf(term) > -1 || body.indexOf(term) > -1){
+      post.style.display = 'flex';
+    }
+    else{
+      // hide the post
+      post.style.display = 'none';
+    }
+  }) 
+}
 
 // Adding the scrolling effect.
 window.addEventListener('scroll', () => {
@@ -79,12 +97,11 @@ window.addEventListener('scroll', () => {
   if(scrollTop + clientHeight >= scrollHeight - 5){
     // show the loader ...
     showLoadingPage()
-
   }
 
 })
 
-
-
-
 viewAllPosts()
+
+// add event listening for the input search bar with the function as a callback.
+filter.addEventListener('input', searchPost);
