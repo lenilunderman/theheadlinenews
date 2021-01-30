@@ -4,14 +4,15 @@ const filter = document.getElementById('search')
 
 
 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const API_KEY = '259f8ee8372c45ab8895ea8473b4ec22'
+const API_KEY = '4457429f59a433d6bef7c5a9215dff1e'
 let page_size = 5
 let page = 1
 
 // create the function to grab the data from the api
 async function getAllPosts() {
   // fetch the data from the api and put inside a promise
-  const fetchAPI = await fetch(`https://newsapi.org/v2/everything?q=technology&pageSize=${page_size}&from=2020-12-29&sortBy=publishedAt&apiKey=${API_KEY}`)
+  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${API_KEY}&lang=en`)
+
   // transform the data in json
   const apiJson = fetchAPI.json()
   // return the data
@@ -60,7 +61,7 @@ function showLoadingPage(){
     loader.classList.remove('show')
     setTimeout(() => {
       // display more pages
-      page++
+      // page++ 
       viewAllPosts()
 
     }, 400);
