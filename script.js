@@ -11,7 +11,7 @@ let page = 1
 // create the function to grab the data from the api
 async function getAllPosts() {
   // fetch the data from the api and put inside a promise
-  const fetchAPI = await fetch(`http://newsapi.org/v2/everything?q=technology&pageSize=${page_size}&from=2020-12-29&sortBy=publishedAt&apiKey=${API_KEY}`)
+  const fetchAPI = await fetch(`https://newsapi.org/v2/everything?q=technology&pageSize=${page_size}&from=2020-12-29&sortBy=publishedAt&apiKey=${API_KEY}`)
   // transform the data in json
   const apiJson = fetchAPI.json()
   // return the data
