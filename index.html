@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Infinity Scroll | Async await and Fetch</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="has-color-body">
+  <!-- nav and heading of the project -->
+  <div class="section">
+      <div class="container">
+        <nav class="level">
+            <h1 class="level-item has-text-centered logo-headline">
+              THE HEADLINES NEWS
+            </h1>
+          </nav>
+      </div>
+  </div>
+  <div class="section has-background-heading">
+      <div class="container is-medium has-text-centered">
+          <h1 class="is-size-3 has-text-white py-4">
+              A place where you can get the top headline of your daily news <br>
+              and keep yourself informed.
+          </h1>
+          <input class="input is-rounded my-3 py-2 has-text-centered has-text-grey" type="text" placeholder="Search for what matters to you..." id="search">
+        </div>
+  </div>
+  <div class="section news">
+
+      <div class="container" id="article-class">
+      <!-- articles goes here -->
+      </div>
+
+  </div>
+
+  <!-- loader goes here -->
+  <section class="container has-text-centered spin">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+    <!-- script on the bottom-->
+    <script src="./script.js"></script>
+
+  </body>
+</html>
