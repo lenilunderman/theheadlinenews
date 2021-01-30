@@ -1,3 +1,6 @@
+require('dotenv').config();
+const testkey = process.env.API_KEY;
+
 const postContainer = document.getElementById('article-class')
 const loader = document.querySelector('.lds-ellipsis')
 const filter = document.getElementById('search')
@@ -11,7 +14,7 @@ let page = 1
 // create the function to grab the data from the api
 async function getAllPosts() {
   // fetch the data from the api and put inside a promise
-  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${API_KEY2}&lang=en`)
+  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${testkey}&lang=en`)
 
   // transform the data in json
   const apiJson = fetchAPI.json()
