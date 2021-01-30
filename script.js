@@ -1,12 +1,9 @@
-require('dotenv').config();
-const testkey = process.env.API_KEY;
-
 const postContainer = document.getElementById('article-class')
 const loader = document.querySelector('.lds-ellipsis')
 const filter = document.getElementById('search')
 
 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
+const testkey = '360ceee9e5eeb957b4a961455e0c3563';
 let page_size = 5
 let page = 1
 
