@@ -6,7 +6,6 @@ const loader = document.querySelector('.lds-ellipsis')
 const filter = document.getElementById('search')
 
 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const API_KEY2 = '360ceee9e5eeb957b4a961455e0c3563'
 
 let page_size = 5
 let page = 1
