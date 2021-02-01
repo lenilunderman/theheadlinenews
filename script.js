@@ -6,6 +6,10 @@ const filter = document.getElementById('search')
 //const testkey = '360ceee9e5eeb957b4a961455e0c3563';
 let page_size = 5
 let page = 1
+console.log('test1', ${{secrets.API_NEWS}} )
+
+console.log('test2', ${secrets.API_NEWS} )
+
 
 // create the function to grab the data from the api
 async function getAllPosts() {
