@@ -8,7 +8,7 @@ let page_size = 5
 let page = 1
 
 
-console.log(API_NEWS)
+console.log(secrets.API_NEWS)
 //console.log('test1', ${{secrets.API_NEWS}} )
 
 //console.log('test2', ${secrets.API_NEWS} )
