@@ -10,7 +10,7 @@ let page = 1
 // create the function to grab the data from the api
 async function getAllPosts() {
   // fetch the data from the api and put inside a promise
-  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${secrets.API_NEWS}&lang=en`)
+  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${{secrets.API_NEWS}}&lang=en`)
 
   // transform the data in json
   const apiJson = fetchAPI.json()
