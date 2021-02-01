@@ -3,14 +3,14 @@ const loader = document.querySelector('.lds-ellipsis')
 const filter = document.getElementById('search')
 
 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const testkey = '360ceee9e5eeb957b4a961455e0c3563';
+//const testkey = '360ceee9e5eeb957b4a961455e0c3563';
 let page_size = 5
 let page = 1
 
 // create the function to grab the data from the api
 async function getAllPosts() {
   // fetch the data from the api and put inside a promise
-  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${testkey}&lang=en`)
+  const fetchAPI = await fetch(`https://gnews.io/api/v4/top-headlines?token=${secrets.API_NEWS}&lang=en`)
 
   // transform the data in json
   const apiJson = fetchAPI.json()
